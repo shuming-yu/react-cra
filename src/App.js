@@ -1,14 +1,29 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+// 外部套件
+
 import logo from './assets/logo.svg';
 import './assets/App.css';
 import Input from './components/Input';
 
 function App() {
   const [text, setText] = useState('');
-  
+
   const handleInputChange = (e) => {
     setText(e.target.value);
   }
+
+  useEffect(() => {
+    (async () => {
+      axios.get('https://jsonplaceholder.typicode.com/todos/1')
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.error('Error fetching data:', err);
+        });
+    })();
+  }, []);
 
   return (
     <div className="App">
