@@ -42,6 +42,8 @@ function App() {
           Learn React
         </a>
 
+        <button type="button" className="btn btn-primary">Primary</button>
+
         { text }
         <Input id="myInput" text="My Input:" value={text} onChangeHandler={handleInputChange} />
       </header>
